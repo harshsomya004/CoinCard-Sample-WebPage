@@ -132,6 +132,21 @@ export default function FAQComp() {
             <ListItems showText={SecText6} setShowText={setSecText6} />
           </List>
         </div>
+        <div
+          className={css`
+            margin-top: 4%;
+            color: white;
+          `}
+        >
+          Still have any questions?
+          <span
+            className={css`
+              color: #4873ff;
+            `}
+          >
+            Contact Us
+          </span>
+        </div>
       </div>
     </>
   );

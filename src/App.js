@@ -4,11 +4,14 @@ import NavBar from "./Components/NavBar";
 import WelcomeComp from "./Components/WelcomeComp";
 import CardComp from "./Components/CradComp";
 import FAQComp from "./Components/FAQComp";
+import ReviewsComp from "./Components/ReviewsComp";
+import BaseComp from "./Components/BaseComp";
 
 export default function App() {
   return (
     <>
       <NavBar />
+
       <div
         className={css`
           display: flex;
@@ -32,6 +35,25 @@ export default function App() {
         `}
       >
         <FAQComp />
+      </div>
+      <div
+        className={css`
+          margin-top: 12%;
+          margin-left: 8%;
+          margin-right: 10%;
+        `}
+      >
+        <ReviewsComp />
+      </div>
+      <div
+        className={css`
+          margin-top: 6%;
+          padding-left: 8%;
+          padding-right: 10%;
+          background-color: #020440;
+        `}
+      >
+        <BaseComp />
       </div>
     </>
   );
