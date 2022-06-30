@@ -5,6 +5,7 @@ import WelcomeComp from "./Components/WelcomeComp";
 import CardComp from "./Components/CradComp";
 import FAQComp from "./Components/FAQComp";
 import ReviewsComp from "./Components/ReviewsComp";
+import BaseComp from "./Components/BaseComp";
 
 export default function App() {
   return (
@@ -43,6 +44,16 @@ export default function App() {
         `}
       >
         <ReviewsComp />
+      </div>
+      <div
+        className={css`
+          margin-top: 6%;
+          padding-left: 8%;
+          padding-right: 10%;
+          background-color: #020440;
+        `}
+      >
+        <BaseComp />
       </div>
     </>
   );
