@@ -143,7 +143,7 @@ export default function NavBar(props) {
               border-radius: 12px;
               font-family: sans-serif;
               border-style: none;
-              padding: ${ScreenWidth > 480 ? "10%" : "4%"};
+              padding: ${ScreenWidth > 480 ? "10%" : "10px"};
               &:hover {
                 background: white;
                 color: #4873ff;
