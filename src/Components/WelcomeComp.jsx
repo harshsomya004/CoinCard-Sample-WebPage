@@ -215,6 +215,7 @@ export default function WelcomeComp() {
               align-items: center;
               gap: 5px;
               font-family: sans-serif;
+              border:none;
               &:hover {
                 color: #4873ff;
                 background: white;
