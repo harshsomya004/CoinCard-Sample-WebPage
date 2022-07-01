@@ -197,10 +197,9 @@ export default function WelcomeComp() {
             flex-direction: row;
             align-items: center;
             margin-top: 4%;
+            align-self: flex-start;
           `}
           style={{
-            justifyItems: ScreenWidth > 769 ? "flex-start" : "center",
-            alignSelf: ScreenWidth > 769 ? "flex-start" : "center",
             gap: ScreenWidth > 769 ? "1.2in" : "27px"
           }}
         >
@@ -215,7 +214,7 @@ export default function WelcomeComp() {
               align-items: center;
               gap: 5px;
               font-family: sans-serif;
-              border:none;
+              border: none;
               &:hover {
                 color: #4873ff;
                 background: white;
@@ -244,14 +243,11 @@ export default function WelcomeComp() {
         <div
           className={css`
             display: flex;
-            align-items: center;
+            align-items: ${ScreenWidth > 768 ? "center" : "flex-start"};
             margin-top: 4%;
-            justify-content: space-evenly;
           `}
           style={{
             flexDirection: ScreenWidth > 768 ? "row" : "column",
-            justifyItems: ScreenWidth > 769 ? "space-evenly" : "center",
-            alignSelf: ScreenWidth > 769 ? "flex-start" : "center",
             gap: ScreenWidth > 769 ? "0" : "10px"
           }}
         >
@@ -299,7 +295,6 @@ export default function WelcomeComp() {
               />{" "}
               on TrustPilot
             </div>
-            <div></div>
           </div>
         </div>
       </div>
