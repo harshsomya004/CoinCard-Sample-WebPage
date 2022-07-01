@@ -36,12 +36,21 @@ function ListItems(props) {
               style={{ color: props.showText ? "#4873FF" : "white" }}
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit ?
-              <RiArrowDropDownLine
-                size={20}
-                style={{
-                  transform: props.showText ? "rotate(180deg)" : "none"
-                }}
-              />
+              {ScreenWidth > 768 ? (
+                <RiArrowDropDownLine
+                  size={20}
+                  style={{
+                    transform: props.showText ? "rotate(180deg)" : "none"
+                  }}
+                />
+              ) : (
+                <RiArrowDropDownLine
+                  size={70}
+                  style={{
+                    transform: props.showText ? "rotate(180deg)" : "none"
+                  }}
+                />
+              )}
             </div>
           }
           secondary={

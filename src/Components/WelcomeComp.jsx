@@ -12,7 +12,7 @@ export default function WelcomeComp() {
   useEffect(() => {
     tl.fromTo(
       ".text",
-      4,
+      2,
       { width: 0 },
       { width: "100%", ease: SteppedEase.config(12) },
       0
