@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { css } from "@emotion/css";
 import BlueStar from "../Images/Blue_Star.png";
 import { BsArrowRightShort, BsFillStarFill } from "react-icons/bs";
 import ReviewImg from "../Images/Reviews_img.png";
+import { gsap } from "gsap";
+import { TimelineMax, SteppedEase } from "gsap/all";
 
 export default function WelcomeComp() {
   const ScreenWidth = window.innerWidth;
+  const tl = new TimelineMax({ paused: true });
+  useEffect(() => {
+    tl.fromTo(
+      ".text",
+      4,
+      { width: 0 },
+      { width: "100%", ease: SteppedEase.config(12) },
+      0
+    );
+    tl.fromTo(
+      ".text",
+      0.5,
+      { "border-right-color": "#elelel" },
+      {
+        "border-rght-color": "#f7f7f7",
+        repeat: -1,
+        ease: SteppedEase.config(12)
+      },
+      0
+    );
+    tl.play();
+  }, []);
   return (
     <>
       <div
@@ -84,12 +108,15 @@ export default function WelcomeComp() {
           `}
         >
           <div
-            className={css`
-              color: white;
-              font-family: sans-serif;
-              letter-spacing: 0.5px;
-              white-space: nowrap;
-            `}
+            className={
+              (css`
+                color: white;
+                font-family: sans-serif;
+                letter-spacing: 0.5px;
+                white-space: nowrap;
+              `,
+              "text")
+            }
             style={{
               fontSize: ScreenWidth > 768 ? "76px" : "150%"
             }}
@@ -110,12 +137,15 @@ export default function WelcomeComp() {
             Get a <span style={{ color: "#4873FF" }}>VCC</span> in
           </div>
           <div
-            className={css`
-              color: white;
-              font-family: sans-serif;
-              letter-spacing: 0.5px;
-              white-space: nowrap;
-            `}
+            className={
+              (css`
+                color: white;
+                font-family: sans-serif;
+                letter-spacing: 0.5px;
+                white-space: nowrap;
+              `,
+              "text")
+            }
             style={{
               fontSize: ScreenWidth > 768 ? "76px" : "150%"
             }}

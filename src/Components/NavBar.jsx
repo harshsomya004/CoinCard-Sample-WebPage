@@ -3,7 +3,7 @@ import { css } from "@emotion/css";
 import AppLogo from "../Images/CoinCard_Logo_Transparent.png";
 import "@fontsource/plus-jakarta-sans";
 
-export default function NavBar() {
+export default function NavBar(props) {
   const ScreenWidth = window.innerWidth;
   return (
     <>
@@ -38,55 +38,75 @@ export default function NavBar() {
           `}
           style={{ gap: ScreenWidth > 480 ? "1in" : "15px" }}
         >
-          <div
+          <button
             className={css`
               color: white;
               font-size: 80%;
               font-family: sans-serif;
+              background-color: transparent;
+              border: none;
               &:hover {
                 color: #4873ff;
               }
             `}
+            onClick={() => {
+              props.handleClick("order");
+            }}
           >
             Order
-          </div>
-          <div
+          </button>
+          <button
             className={css`
               color: white;
               font-size: 80%;
               font-family: sans-serif;
+              background-color: transparent;
+              border: none;
               &:hover {
                 color: #4873ff;
               }
             `}
+            onClick={() => {
+              props.handleClick("feature");
+            }}
           >
             Features
-          </div>
-          <div
+          </button>
+          <button
             className={css`
               color: white;
               font-size: 80%;
-              white-space: nowrap;
               font-family: sans-serif;
+              background-color: transparent;
+              border: none;
+              white-space: nowrap;
               &:hover {
                 color: #4873ff;
               }
             `}
+            onClick={() => {
+              props.handleClick("about");
+            }}
           >
             About Us
-          </div>
-          <div
+          </button>
+          <button
             className={css`
               color: white;
               font-size: 80%;
               font-family: sans-serif;
+              background-color: transparent;
+              border: none;
               &:hover {
                 color: #4873ff;
               }
             `}
+            onClick={() => {
+              props.handleClick("FAQ");
+            }}
           >
             FAQs
-          </div>
+          </button>
         </div>
         <div
           className={css`

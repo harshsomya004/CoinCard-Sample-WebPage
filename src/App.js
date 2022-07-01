@@ -1,3 +1,4 @@
+import React, { useRef } from "react";
 import "./styles.css";
 import { css } from "@emotion/css";
 import NavBar from "./Components/NavBar";
@@ -9,7 +10,26 @@ import BaseComp from "./Components/BaseComp";
 import FeatureComp from "./Components/FeatureComp";
 
 export default function App() {
+  const FeatureRef = useRef();
+  const FAQRef = useRef();
+  const AboutRef = useRef();
+  const OrderRef = useRef();
   const ScreenWidth = window.innerWidth;
+
+  const handleClick = (val) => {
+    let ref;
+    if (val === "feature") {
+      ref = FeatureRef;
+    } else if (val === "FAQ") {
+      ref = FAQRef;
+    } else if (val === "about") {
+      ref = AboutRef;
+    } else if (val === "order") {
+      ref = OrderRef;
+    }
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <div
@@ -22,7 +42,7 @@ export default function App() {
           padding-bottom: 0.5%;
         `}
       >
-        <NavBar />
+        <NavBar handleClick={handleClick} />
       </div>
       <div
         className={css`
@@ -34,6 +54,7 @@ export default function App() {
           gap: ${ScreenWidth > 768 ? "2.15in" : "75px"};
           flex-direction: ${ScreenWidth > 769 ? "row" : "column"};
         `}
+        ref={OrderRef}
       >
         <WelcomeComp />
         <CardComp />
@@ -44,6 +65,7 @@ export default function App() {
           margin-left: 10%;
           margin-right: 10%;
         `}
+        ref={FeatureRef}
       >
         <FeatureComp />
       </div>
@@ -53,6 +75,7 @@ export default function App() {
           margin-left: 10%;
           margin-right: 10%;
         `}
+        ref={FAQRef}
       >
         <FAQComp />
       </div>
@@ -63,6 +86,7 @@ export default function App() {
           margin-left: 10%;
           margin-right: 10%;
         `}
+        ref={AboutRef}
       >
         <ReviewsComp />
       </div>
