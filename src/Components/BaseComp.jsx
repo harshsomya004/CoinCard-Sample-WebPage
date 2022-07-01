@@ -198,6 +198,7 @@ export default function BaseComp() {
                   background: #4873ff;
                   border-radius: 8px;
                   color: white;
+                  border: none;
                   &:hover {
                     background: white;
                     color: #4873ff;
@@ -214,6 +215,7 @@ export default function BaseComp() {
                   background: #4873ff;
                   border-radius: 8px;
                   color: white;
+                  border: none;
                   &:hover {
                     background: white;
                     color: #4873ff;
@@ -230,6 +232,7 @@ export default function BaseComp() {
                   background: #4873ff;
                   border-radius: 8px;
                   color: white;
+                  border: none;
                   &:hover {
                     background: white;
                     color: #4873ff;
