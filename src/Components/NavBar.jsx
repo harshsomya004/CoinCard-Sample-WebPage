@@ -116,7 +116,7 @@ export default function NavBar(props) {
             align-items: center;
             justify-self: flex-end;
             margin-left: ${ScreenWidth > 480 ? "20%" : "0px"};
-            gap: ${ScreenWidth > 480 ? "20px" : "20%"};
+            gap: ${ScreenWidth > 480 ? "20px" : "11%"};
             margin-bottom: ${ScreenWidth > 480 ? "0%" : "5%"};
             margin-top: ${ScreenWidth > 480 ? "0%" : "5%"};
           `}
