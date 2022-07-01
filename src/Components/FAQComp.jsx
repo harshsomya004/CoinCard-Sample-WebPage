@@ -5,6 +5,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
+const ScreenWidth = window.innerWidth;
 function ListItems(props) {
   return (
     <>
@@ -18,7 +19,7 @@ function ListItems(props) {
           paddingLeft: 5,
           paddingBottom: 2.5,
           paddingRight: 5,
-          width: 1122,
+          width: ScreenWidth > 768 ? "1122px" : "100%",
           marginTop: props.showText === "SecText1" ? 0 : 2
         }}
         onClick={() => {
@@ -97,6 +98,7 @@ export default function FAQComp() {
             font-weight: 500;
             font-size: 36px;
             color: white;
+            text-align: ${ScreenWidth > 768 ? "normal" : "center"};
           `}
         >
           Frequently Asked{" "}
@@ -117,6 +119,7 @@ export default function FAQComp() {
             font-weight: 400;
             opacity: 0.5;
             margin-top: 18px;
+            text-align: ${ScreenWidth > 768 ? "normal" : "center"};
           `}
         >
           In hac habitasse platea dictumst. Proin sollicitudin odio augue. Cras
@@ -136,6 +139,7 @@ export default function FAQComp() {
           className={css`
             margin-top: 4%;
             color: white;
+            text-align: ${ScreenWidth > 768 ? "normal" : "center"};
           `}
         >
           Still have any questions?

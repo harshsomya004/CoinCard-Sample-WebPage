@@ -5,6 +5,7 @@ import { BsArrowRightShort, BsFillStarFill } from "react-icons/bs";
 import ReviewImg from "../Images/Reviews_img.png";
 
 export default function WelcomeComp() {
+  const ScreenWidth = window.innerWidth;
   return (
     <>
       <div
@@ -13,6 +14,7 @@ export default function WelcomeComp() {
           flex-direction: column;
           justify-items: flex-start;
           align-items: center;
+          justify-items: ${ScreenWidth > 768 ? "flex-start" : "center"};
         `}
       >
         <div
@@ -28,14 +30,14 @@ export default function WelcomeComp() {
             className={css`
               display: flex;
               flex-direction: row;
-              justify-items: flex-start;
               align-items: center;
+              justify-items: flex-start;
             `}
           >
             <div
               className={css`
                 font-weight: 700;
-                font-size: 18px;
+                font-size: 100%;
                 letter-spacing: 0.5px;
                 color: #ffffff;
                 opacity: 0.5;
@@ -43,52 +45,56 @@ export default function WelcomeComp() {
                 white-space: nowrap;
               `}
             >
-              {" "}
               WELCOME TO COINCARD
             </div>
-            <div
-              className={css`
-                opacity: 0.5;
-                border-bottom: 1px solid #ffffff;
-                width: 75px;
-                height: 0px;
-                display: flex;
-                flex: 1;
-                margin-left: 2%;
-              `}
-            />
+            {ScreenWidth > 768 ? (
+              <div
+                className={css`
+                  opacity: 0.5;
+                  border-bottom: 1px solid #ffffff;
+                  width: 75px;
+                  height: 0px;
+                  display: flex;
+                  flex: 1;
+                  margin-left: 2%;
+                `}
+              />
+            ) : null}
           </div>
 
           <img
             alt=""
             src={BlueStar}
-            className={css`
-              width: 37.5px;
-              height: 37.5px;
-              margin-left: 25%;
-            `}
+            style={{
+              width: ScreenWidth > 768 ? "37.5px" : "8%",
+              height: ScreenWidth > 768 ? "37.5px" : "8%",
+              marginLeft: ScreenWidth > 768 ? "25%" : "10px"
+            }}
           />
         </div>
         <div
           className={css`
             display: flex;
-            flex-direction: row;
-            justify-items: flex-start;
-            align-items: center;
-            flex: 1;
+            flex-direction: column;
+            justify-items: center;
+            align-items: flex-start;
             margin-top: 5%;
+            justify-content: flex-start;
+            align-self: flex-start;
           `}
         >
-          <div>
-            <div
-              className={css`
-                font-size: 76px;
-                color: white;
-                font-family: sans-serif;
-                letter-spacing: 0.5px;
-                white-space: nowrap;
-              `}
-            >
+          <div
+            className={css`
+              color: white;
+              font-family: sans-serif;
+              letter-spacing: 0.5px;
+              white-space: nowrap;
+            `}
+            style={{
+              fontSize: ScreenWidth > 768 ? "76px" : "150%"
+            }}
+          >
+            {ScreenWidth > 768 ? (
               <img
                 alt=""
                 src={BlueStar}
@@ -100,19 +106,21 @@ export default function WelcomeComp() {
                   opacity: 0.5;
                 `}
               />
-              Get a <span style={{ color: "#4873FF" }}>VCC</span> in
-            </div>
-            <div
-              className={css`
-                font-size: 76px;
-                color: white;
-                font-family: sans-serif;
-                letter-spacing: 0.5px;
-                white-space: nowrap;
-              `}
-            >
-              Just <span style={{ color: "#4873FF" }}>5 Minutes</span>
-            </div>
+            ) : null}
+            Get a <span style={{ color: "#4873FF" }}>VCC</span> in
+          </div>
+          <div
+            className={css`
+              color: white;
+              font-family: sans-serif;
+              letter-spacing: 0.5px;
+              white-space: nowrap;
+            `}
+            style={{
+              fontSize: ScreenWidth > 768 ? "76px" : "150%"
+            }}
+          >
+            Just <span style={{ color: "#4873FF" }}>5 Minutes</span>
           </div>
         </div>
         <div
@@ -126,13 +134,14 @@ export default function WelcomeComp() {
             className={css`
               color: white;
               font-weight: 400;
-              font-size: 20px;
-              line-height: 26px;
               letter-spacing: 0.5px;
               opacity: 0.5;
               font-family: sans-serif;
               white-space: nowrap;
             `}
+            style={{
+              fontSize: ScreenWidth > 768 ? "20px" : "10px"
+            }}
           >
             Lorem ipsum dolor sit amet, consect adipiscing elit.
           </div>
@@ -140,13 +149,14 @@ export default function WelcomeComp() {
             className={css`
               color: white;
               font-weight: 400;
-              font-size: 20px;
-              line-height: 26px;
               letter-spacing: 0.5px;
               opacity: 0.5;
               font-family: sans-serif;
               white-space: nowrap;
             `}
+            style={{
+              fontSize: ScreenWidth > 768 ? "20px" : "10px"
+            }}
           >
             Curabitur consectetur sapien ante, ac congue libero.
           </div>
@@ -155,11 +165,14 @@ export default function WelcomeComp() {
           className={css`
             display: flex;
             flex-direction: row;
-            justify-items: flex-start;
             align-items: center;
-            align-self: flex-start;
             margin-top: 4%;
           `}
+          style={{
+            justifyItems: ScreenWidth > 769 ? "flex-start" : "center",
+            alignSelf: ScreenWidth > 769 ? "flex-start" : "center",
+            gap: ScreenWidth > 769 ? "1.2in" : "27px"
+          }}
         >
           <button
             className={css`
@@ -170,15 +183,16 @@ export default function WelcomeComp() {
               flex-direction: row;
               justify-content: center;
               align-items: center;
-              padding: 13.0588px 42px;
               gap: 5px;
               font-family: sans-serif;
-              margin-right: 75px;
               &:hover {
                 color: #4873ff;
                 background: white;
               }
             `}
+            style={{
+              padding: ScreenWidth > 768 ? "13px 42px" : "10px"
+            }}
           >
             Get Started
             <BsArrowRightShort size={20} />
@@ -199,31 +213,36 @@ export default function WelcomeComp() {
         <div
           className={css`
             display: flex;
-            flex-direction: row;
-            justify-items: space-evenly;
             align-items: center;
-            align-self: flex-start;
             margin-top: 4%;
             justify-content: space-evenly;
           `}
+          style={{
+            flexDirection: ScreenWidth > 768 ? "row" : "column",
+            justifyItems: ScreenWidth > 769 ? "space-evenly" : "center",
+            alignSelf: ScreenWidth > 769 ? "flex-start" : "center",
+            gap: ScreenWidth > 769 ? "0" : "10px"
+          }}
         >
           <img
             alt=""
             src={ReviewImg}
             className={css`
-              width: 198px;
+              width: 40%;
               height: auto;
             `}
           />
-          <div
-            className={css`
-              width: 2px;
-              background: white;
-              height: 62px;
-              margin-right: 30px;
-              margin-left: 30px;
-            `}
-          />
+          {ScreenWidth > 768 ? (
+            <div
+              className={css`
+                width: 2px;
+                background: white;
+                height: 62px;
+                margin-right: 9%;
+                margin-left: 9%;
+              `}
+            />
+          ) : null}
           <div>
             <div
               className={css`
@@ -236,6 +255,7 @@ export default function WelcomeComp() {
                 font-size: 16px;
                 text-align: center;
                 font-family: sans-serif;
+                white-space: nowrap;
               `}
             >
               Rated 4.9{" "}

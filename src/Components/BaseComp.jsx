@@ -4,13 +4,14 @@ import Logo from "../Images/Logo.png";
 import { FaDiscord, FaTelegramPlane, FaInstagram } from "react-icons/fa";
 
 export default function BaseComp() {
+  const ScreenWidth = window.innerWidth;
   return (
     <>
       <div
         className={css`
           display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
+          flex-direction: ${ScreenWidth > 768 ? "row" : "column"};
+          justify-content: ${ScreenWidth > 768 ? "flex-start" : "center"};
           align-content: center;
           font-family: sans-serif;
           padding-top: 7%;
@@ -30,15 +31,15 @@ export default function BaseComp() {
             src={Logo}
             alt=""
             className={css`
-              width: 20%;
+              width: ${ScreenWidth > 768 ? "20%" : "70%"};
             `}
           />
           <div
             className={css`
-              width: 38%;
+              width: ${ScreenWidth > 768 ? "38%" : "100%"};
               color: white;
               opacity: 0.5;
-              margin-top: 2.5%;
+              margin-top: ${ScreenWidth > 768 ? "2.5%" : "10%"};
               font-size: 14px;
             `}
           >
@@ -54,7 +55,8 @@ export default function BaseComp() {
               width: 35%;
               color: white;
               font-size: 14px;
-              margin-top: 2.5%;
+              margin-top: ${ScreenWidth > 768 ? "2.5%" : "10%"};
+              white-space: nowrap;
             `}
           >
             Terms of Service
@@ -66,8 +68,8 @@ export default function BaseComp() {
                 opacity: 0.25;
                 border-radius: 999px;
                 align-self: center;
-                margin-left: 5%;
-                margin-right: 5%;
+                margin-left: ${ScreenWidth > 768 ? "5%" : "25%"};
+                margin-right: ${ScreenWidth > 768 ? "5%" : "25%"};
               `}
             />
             Privacy Policy
@@ -76,10 +78,11 @@ export default function BaseComp() {
         <div
           className={css`
             display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
+            flex-direction: ${ScreenWidth > 768 ? "row" : "column"};
+            margin-top: ${ScreenWidth > 768 ? "0%" : "10%"};
+            justify-content: ${ScreenWidth > 768 ? "flex-end" : "center"};
             align-content: center;
-            gap: 70px;
+            gap: ${ScreenWidth > 768 ? "70px" : "25px"};
           `}
         >
           <div
@@ -94,7 +97,7 @@ export default function BaseComp() {
             <div
               className={css`
                 color: #4873ff;
-                margin-bottom: 20%;
+                margin-bottom: ${ScreenWidth > 768 ? "20%" : "5%"};
                 opacity: 0.9;
               `}
             >
@@ -137,7 +140,7 @@ export default function BaseComp() {
             <div
               className={css`
                 color: #4873ff;
-                margin-bottom: 20%;
+                margin-bottom: ${ScreenWidth > 768 ? "20%" : "5%"};
                 opacity: 0.9;
               `}
             >
@@ -172,7 +175,7 @@ export default function BaseComp() {
             <div
               className={css`
                 color: #4873ff;
-                margin-bottom: 12%;
+                margin-bottom: ${ScreenWidth > 768 ? "12%" : "5%"};
                 opacity: 0.9;
               `}
             >

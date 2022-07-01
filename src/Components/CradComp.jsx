@@ -9,6 +9,7 @@ import { SiEthereum, SiLitecoin } from "react-icons/si";
 import { BsArrowRightShort } from "react-icons/bs";
 
 export default function CardComp() {
+  const ScreenWidth = window.innerWidth;
   const [Email, setEmail] = useState();
   const [amount, setAmount] = useState();
   const [paymentMethod, setPaymentMethod] = useState("Bitcoin");
@@ -23,8 +24,8 @@ export default function CardComp() {
     >
       <div
         className={css`
-          width: 550px;
-          height: 410px;
+          width: ${ScreenWidth > 768 ? "550px" : "100%"};
+          height: 100%;
           background: #00196b;
           border-radius: 48px;
           display: flex;
@@ -43,21 +44,22 @@ export default function CardComp() {
           src={Logo}
           alt=""
           className={css`
-            width: 175px;
-            margin-left: 30px;
+            width: 40%;
+            margin-left: 6%;
             margin-top: 20%;
           `}
         />
         <div
           className={css`
             display: flex;
-            flex-direction: row;
+            flex-direction: ${ScreenWidth > 768 ? "row" : "column"};
             justify-content: space-between;
             align-content: flex-start;
-            margin-left: 30px;
-            margin-right: 30px;
+            margin-left: 6%;
+            margin-right: 6%;
             margin-top: 10%;
-            margin-bottom: 35px;
+            margin-bottom: 7%;
+            gap: ${ScreenWidth > 768 ? "0%" : "10px"};
           `}
         >
           <div
@@ -79,6 +81,7 @@ export default function CardComp() {
                 background: transparent;
                 border-style: none;
                 color: white;
+                width: 100%;
                 &:focus {
                   outline: none;
                 }
@@ -97,7 +100,7 @@ export default function CardComp() {
               display: flex;
               flex-direction: row;
               align-items: center;
-              padding: 10px 10px 10px 10px;
+              padding: 10px 0px 10px 25px;
               gap: 10px;
               background: rgba(255, 255, 255, 0.1);
               border-radius: 10px;
@@ -110,6 +113,7 @@ export default function CardComp() {
                 background: transparent;
                 border-style: none;
                 color: white;
+                width: 100%;
                 &:focus {
                   outline: none;
                 }
@@ -128,9 +132,9 @@ export default function CardComp() {
           className={css`
             display: flex;
             flex: 1;
-            flex-direction: row;
+            flex-direction: ${ScreenWidth > 768 ? " row" : "column"};
             justify-content: flex-start;
-            align-items: flex-start;
+            align-items: ${ScreenWidth > 768 ? " center" : "flex-start"};
             background: #4873ff;
             height: 100%;
             width: 100%;
@@ -140,120 +144,161 @@ export default function CardComp() {
         >
           <div
             className={css`
-              margin-left: 30px;
-              margin-top: 50px;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-start;
+              align-content: flex-start;
+              margin-left: ${ScreenWidth > 768 ? "5%" : "10%"};
             `}
           >
             <div
               className={css`
-                font-size: 16px;
-                color: white;
-                font-family: sans-serif;
+                margin-top: 5%;
+                margin-bottom: 5%;
               `}
             >
-              Select
+              <div
+                className={css`
+                  font-size: 16px;
+                  color: white;
+                  font-family: sans-serif;
+                `}
+              >
+                Select
+              </div>
+              <div
+                className={css`
+                  font-size: 16px;
+                  color: white;
+                  font-family: sans-serif;
+                `}
+              >
+                Payment
+              </div>
             </div>
-            <div
+            <button
               className={css`
-                font-size: 16px;
-                color: white;
-                font-family: sans-serif;
+                padding: ${ScreenWidth > 768 ? "10px" : "auto"};
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-left: ${ScreenWidth > 768 ? "10%" : "15%"};
+                margin-top: 5%;
+                margin-bottom: 5%;
+                border-radius: 10px;
+                border-style: none;
               `}
+              style={{
+                background:
+                  paymentMethod === "Bitcoin"
+                    ? "#00196B"
+                    : "rgba(255, 255, 255, 0.1)"
+              }}
+              onClick={() => {
+                setPaymentMethod("Bitcoin");
+              }}
             >
-              Payment
-            </div>
+              {ScreenWidth > 768 ? (
+                <BsCurrencyBitcoin
+                  size={25}
+                  style={{
+                    color: paymentMethod === "Bitcoin" ? "white" : "#020335"
+                  }}
+                />
+              ) : (
+                <BsCurrencyBitcoin
+                  size={20}
+                  style={{
+                    color: paymentMethod === "Bitcoin" ? "white" : "#020335"
+                  }}
+                />
+              )}
+            </button>
+            <button
+              className={css`
+                padding: ${ScreenWidth > 768 ? "10px" : "auto"};
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-left: 5%;
+                margin-top: 5%;
+                margin-bottom: 5%;
+                border-radius: 10px;
+                border-style: none;
+              `}
+              style={{
+                background:
+                  paymentMethod === "Ethereum"
+                    ? "#00196B"
+                    : "rgba(255, 255, 255, 0.1)"
+              }}
+              onClick={() => {
+                setPaymentMethod("Ethereum");
+              }}
+            >
+              {ScreenWidth > 768 ? (
+                <SiEthereum
+                  size={25}
+                  style={{
+                    color: paymentMethod === "Ethereum" ? "white" : "#020335"
+                  }}
+                />
+              ) : (
+                <SiEthereum
+                  size={20}
+                  style={{
+                    color: paymentMethod === "Ethereum" ? "white" : "#020335"
+                  }}
+                />
+              )}
+            </button>
+            <button
+              className={css`
+                padding: ${ScreenWidth > 768 ? "10px" : "auto"};
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-left: 5%;
+                margin-top: 5%;
+                margin-bottom: 5%;
+                border-radius: 10px;
+                border-style: none;
+              `}
+              style={{
+                background:
+                  paymentMethod === "Litecoin"
+                    ? "#00196B"
+                    : "rgba(255, 255, 255, 0.1)"
+              }}
+              onClick={() => {
+                setPaymentMethod("Litecoin");
+              }}
+            >
+              {ScreenWidth > 768 ? (
+                <SiLitecoin
+                  size={25}
+                  style={{
+                    color: paymentMethod === "Litecoin" ? "white" : "#020335"
+                  }}
+                />
+              ) : (
+                <SiLitecoin
+                  size={20}
+                  style={{
+                    color: paymentMethod === "Litecoin" ? "white" : "#020335"
+                  }}
+                />
+              )}
+            </button>
           </div>
           <button
             className={css`
-              padding: 10px;
-              display: flex;
-              flex-direction: row;
-              justify-content: center;
-              align-items: center;
-              margin-left: 18px;
-              margin-top: 50px;
-              border-radius: 10px;
-              border-style: none;
-            `}
-            style={{
-              background:
-                paymentMethod === "Bitcoin"
-                  ? "#00196B"
-                  : "rgba(255, 255, 255, 0.1)"
-            }}
-            onClick={() => {
-              setPaymentMethod("Bitcoin");
-            }}
-          >
-            <BsCurrencyBitcoin
-              size={25}
-              style={{
-                color: paymentMethod === "Bitcoin" ? "white" : "#020335"
-              }}
-            />
-          </button>
-          <button
-            className={css`
-              padding: 10px;
-              display: flex;
-              flex-direction: row;
-              justify-content: center;
-              align-items: center;
-              margin-left: 18px;
-              margin-top: 50px;
-              border-radius: 10px;
-              border-style: none;
-            `}
-            style={{
-              background:
-                paymentMethod === "Ethereum"
-                  ? "#00196B"
-                  : "rgba(255, 255, 255, 0.1)"
-            }}
-            onClick={() => {
-              setPaymentMethod("Ethereum");
-            }}
-          >
-            <SiEthereum
-              size={25}
-              style={{
-                color: paymentMethod === "Ethereum" ? "white" : "#020335"
-              }}
-            />
-          </button>
-          <button
-            className={css`
-              padding: 10px;
-              display: flex;
-              flex-direction: row;
-              justify-content: center;
-              align-items: center;
-              margin-left: 18px;
-              margin-top: 50px;
-              border-radius: 10px;
-              border-style: none;
-            `}
-            style={{
-              background:
-                paymentMethod === "Litecoin"
-                  ? "#00196B"
-                  : "rgba(255, 255, 255, 0.1)"
-            }}
-            onClick={() => {
-              setPaymentMethod("Litecoin");
-            }}
-          >
-            <SiLitecoin
-              size={25}
-              style={{
-                color: paymentMethod === "Litecoin" ? "white" : "#020335"
-              }}
-            />
-          </button>
-          <button
-            className={css`
-              margin-left: 90px;
-              margin-right: 30px;
+              margin-left: 27.5%;
+              margin-top: 5%;
+              margin-bottom: 5%;
               padding: 15px;
               display: flex;
               flex-direction: row;
@@ -263,8 +308,8 @@ export default function CardComp() {
               color: white;
               gap: 5px;
               border-style: none;
-              margin-top: 50px;
               border-radius: 10px;
+              white-space: nowrap;
               &:hover {
                 color: #00196b;
                 background: white;
