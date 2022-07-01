@@ -1,8 +1,9 @@
 import React from "react";
 import { css } from "@emotion/css";
 import Grid from "@mui/material/Grid";
-import { IoMdFlash, IoDiamondOutline } from "react-icons/io";
+import { IoMdFlash} from "react-icons/io";
 import { MdOutlineVpnKey } from "react-icons/md";
+import { GrDiamond } from "react-icons/gr";
 
 const ScreenWidth = window.innerWidth;
 function GridBox(props) {
@@ -32,10 +33,10 @@ function GridBox(props) {
             margin-bottom: 5%;
           `}
         >
-          {props.logo === "Flash" ? (
+          {props.Logo === "Flash" ? (
             <IoMdFlash size={20} color={"#4873FF"} />
-          ) : props.logo === "Diamond" ? (
-            <IoDiamondOutline size={20} color={"#4873FF"} />
+          ) : props.Logo === "Diamond" ? (
+            <GrDiamond size={20} color={"#4873FF"} />
           ) : (
             <MdOutlineVpnKey size={20} color={"#4873FF"} />
           )}
