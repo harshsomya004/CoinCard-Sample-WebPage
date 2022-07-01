@@ -3,29 +3,27 @@ import { css } from "@emotion/css";
 import AppLogo from "../Images/CoinCard_Logo_Transparent.png";
 import "@fontsource/plus-jakarta-sans";
 
-export default function NavBar() {
+export default function NavBar(props) {
+  const ScreenWidth = window.innerWidth;
   return (
     <>
       <div
         className={css`
-          background-color: rgba(30, 30, 44, 0.25);
           width: 100%;
           display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-items: center;
-          flex: 1;
-          border-bottom: 1px solid rgba(72, 115, 255, 0.25);
+          flex-direction: ${ScreenWidth > 769 ? "row" : "column"};
+          justify-content: ${ScreenWidth > 769 ? "center" : "center"};
+          align-content: ${ScreenWidth > 769 ? "center" : "center"};
         `}
       >
         <div>
           <img
             src={AppLogo}
             className={css`
-              width: 22%;
               padding-top: 2.5%;
               padding-bottom: 2.5%;
-              margin-left: 25%;
+              margin-bottom: ${ScreenWidth > 480 ? "0px" : "8px"};
+              width: ${ScreenWidth > 480 ? "30%" : "50%"};
             `}
             alt=""
           />
@@ -36,59 +34,79 @@ export default function NavBar() {
             flex-direction: row;
             justify-items: center;
             align-items: center;
-            gap: 1in;
             margin-right: auto;
           `}
+          style={{ gap: ScreenWidth > 480 ? "1in" : "15px" }}
         >
-          <div
+          <button
             className={css`
               color: white;
               font-size: 80%;
               font-family: sans-serif;
+              background-color: transparent;
+              border: none;
               &:hover {
                 color: #4873ff;
               }
             `}
+            onClick={() => {
+              props.handleClick("order");
+            }}
           >
             Order
-          </div>
-          <div
+          </button>
+          <button
             className={css`
               color: white;
               font-size: 80%;
               font-family: sans-serif;
+              background-color: transparent;
+              border: none;
               &:hover {
                 color: #4873ff;
               }
             `}
+            onClick={() => {
+              props.handleClick("feature");
+            }}
           >
             Features
-          </div>
-          <div
+          </button>
+          <button
             className={css`
               color: white;
               font-size: 80%;
-              white-space: nowrap;
               font-family: sans-serif;
+              background-color: transparent;
+              border: none;
+              white-space: nowrap;
               &:hover {
                 color: #4873ff;
               }
             `}
+            onClick={() => {
+              props.handleClick("about");
+            }}
           >
             About Us
-          </div>
-          <div
+          </button>
+          <button
             className={css`
               color: white;
               font-size: 80%;
               font-family: sans-serif;
+              background-color: transparent;
+              border: none;
               &:hover {
                 color: #4873ff;
               }
             `}
+            onClick={() => {
+              props.handleClick("FAQ");
+            }}
           >
             FAQs
-          </div>
+          </button>
         </div>
         <div
           className={css`
@@ -96,9 +114,11 @@ export default function NavBar() {
             flex-direction: row;
             justify-items: center;
             align-items: center;
-            gap: 20px;
-            margin-left: 20%;
-            padding-right: 12%;
+            justify-self: flex-end;
+            margin-left: ${ScreenWidth > 480 ? "20%" : "0px"};
+            gap: ${ScreenWidth > 480 ? "20px" : "11%"};
+            margin-bottom: ${ScreenWidth > 480 ? "0%" : "5%"};
+            margin-top: ${ScreenWidth > 480 ? "0%" : "5%"};
           `}
         >
           <div
@@ -120,10 +140,10 @@ export default function NavBar() {
               background: #4873ff;
               font-size: 80%;
               white-space: nowrap;
-              padding: 10%;
               border-radius: 12px;
-              margin-right: 20%;
               font-family: sans-serif;
+              border-style: none;
+              padding: ${ScreenWidth > 480 ? "10%" : "4%"};
               &:hover {
                 background: white;
                 color: #4873ff;

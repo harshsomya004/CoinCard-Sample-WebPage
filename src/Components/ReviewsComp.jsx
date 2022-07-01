@@ -8,6 +8,8 @@ import img4 from "../Images/img4.png";
 import img5 from "../Images/img5.png";
 import img6 from "../Images/img6.png";
 import { BsFillStarFill } from "react-icons/bs";
+
+const ScreenWidth = window.innerWidth;
 function GridBox(props) {
   return (
     <>
@@ -53,15 +55,18 @@ function GridBox(props) {
               max-width: 45px;
               height: auto;
               max-height: 45px;
-              margin-right: 10px;
+              margin-right: 5%;
             `}
           />
           <div
             className={css`
-              font-size: 18px;
               color: white;
               white-space: nowrap;
             `}
+            style={{
+              marginRight: ScreenWidth > 480 ? "40%" : "2.5%",
+              fontSize: ScreenWidth > 480 ? 18 : 14
+            }}
           >
             Reviewer Name
           </div>
@@ -74,10 +79,11 @@ function GridBox(props) {
               justify-content: center;
               align-items: center;
               color: #00c344;
-              width: 64px;
-              height: 32px;
-              font-size: 10px;
-              margin-left: 1in;
+              font-size: 12px;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              padding-left: 15px;
+              padding-right: 17px;
             `}
           >
             <BsFillStarFill
@@ -147,6 +153,7 @@ export default function ReviewsComp() {
               color: #4873ff;
             `}
           >
+            {" "}
             Reviews
           </span>
         </div>
@@ -155,6 +162,7 @@ export default function ReviewsComp() {
             margin-top: 20px;
             color: white;
             opacity: 0.5;
+            text-align: ${ScreenWidth > 768 ? "normal" : "center"};
           `}
         >
           In hac habitasse platea dictumst. Proin sollicitudin odio augue. Cras
@@ -167,8 +175,8 @@ export default function ReviewsComp() {
         >
           <Grid
             container
-            spacing={{ md: 2 }}
-            columns={{ md: 12 }}
+            spacing={{ xs: 2, md: 3 }}
+            columns={{ xs: 4, sm: 8, md: 12 }}
             columnSpacing={0}
           >
             <Grid item xs={4}>
